@@ -1,0 +1,110 @@
+body {
+	padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+}
+
+#frmAddUser{
+	padding:20px;
+}
+
+
+#login {
+        max-width: 300px;
+        padding: 19px 29px 29px;
+        margin: 50px auto 20px;
+        background-color: #fff;
+        border: 1px solid #e5e5e5;
+        -webkit-border-radius: 5px;
+           -moz-border-radius: 5px;
+                border-radius: 5px;
+        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+           -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+                box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+#login #login-heading,
+#login .checkbox {
+        margin-bottom: 10px;
+}
+#login input[type="text"],
+#login input[type="password"] {
+        font-size: 16px;
+        height: auto;
+        margin-bottom: 15px;
+        padding: 7px 9px;
+}
+
+#login-title{
+	margin-top:20px;
+	margin-left:20px;
+}
+#logged-out{
+	margin-left:23px;
+}
+
+
+.event {
+    float: left;
+    max-width: 330px;
+    min-width: 300px;
+    padding: 10px;
+}
+
+.event-detail select{
+    margin-right:10px;
+}
+
+.event-detail button{
+    vertical-align: top;
+}
+
+.inp-practice{
+	margin-right:10px;
+	width:91px;
+}
+
+.login-container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.gray{
+	background-color: #DBDBDB;
+}
+
+.dropdown-backdrop {
+    position: static;
+}
+
+.warning{
+    position:absolute;
+    bottom:0;
+}
+
+.warning p {
+font-weight:bold;
+}
+
+.error{
+font-weight:bold;
+color:red;
+}
+
+@media only screen and (max-width: 977px){
+
+body{
+	padding-top: 0px;
+}
+
+}
+@media only screen and (max-device-width: 480px){
+.warning p{
+        font-size: 0.6em;
+}
+
+h1{
+	font-size: 2em;
+}
+
+}
+
