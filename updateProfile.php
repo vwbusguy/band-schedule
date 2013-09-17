@@ -37,14 +37,14 @@ if ($key != 'id'){
 		echo "<h4>User Role: $level </h4>";
 	}elseif($key == "status"){
 		echo "<h4>Status </h4>";
-		echo "<select id=\"status\">";
+		echo "<select id=\"status\" name=\"status\">";
 		$statuses = $user->getUserStatuses();
 		foreach ($statuses as $stat){
 			$option = "<option value=\"" . $stat['id'] . "\"";
 			if ($stat['id'] == $val){
 				$option .= " selected=\"selected\"";
 			}
-			$option .=">" . $stat['status'] . "</option>";
+			$option .=">" . ucfirst($stat['status']) . "</option>";
 			echo $option;
 		}
 		echo "</select>";
