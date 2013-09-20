@@ -17,6 +17,9 @@ select{
 
 <div class="container">
 <h1>Scheduled Events</h1>
+
+<p class="info">Welcome to the events page.  Here you can see events at a glance by month.  You can quickly signup for one here.  To see details or make changes, click on the date of the event.</p>
+
 <form id="selMonth" method="POST" action="/events.php">
 <select name="month">
 <option value='' disabled>Month</option>
@@ -89,7 +92,7 @@ function drawEvent($ev){
 	$user = new users;
 	echo "<div class=\"event";
 	echo "\">";
-        echo "<h4 class=\"event-h4\" id='h4-event" . $ev['eventid'] . "'><a href='/event.php?id=" . $ev['eventid'] . "'>" . date("F d, Y", strtotime($ev['date'])) . "</a></h4>";
+        echo "<h4 class=\"event-h4\" id='h4-event" . $ev['eventid'] . "'><a href='/event.php?id=" . $ev['eventid'] . "'>" . date("F j, Y", strtotime($ev['date'])) . "</a></h4>";
 	$state =  $event->getEventStatus($ev['status']);
 	echo "Event Status: " . ucfirst($state['status']) . "<br/>";
         if ($ev['leader'] == Null){
@@ -105,7 +108,7 @@ function drawEvent($ev){
 		echo "<button type='button' class=\"btn btn-primary btnEventConfirm\" id=\"btnConfirm" . $ev['eventid'] . "\" value=\"" . $ev['eventid'] . "\">Sign up</button>";
 	}else{
 		echo "Your status for this event: " . ucfirst($status['status']) . "</div>" ;
-		echo "<button type='button' class=\"btn btn-primary btnEventConfirm\" id=\"btnConfirm" . $ev['eventid'] . "\" value=\"" . $ev['eventid'] . "\" disabled>Sign up</button>";
+		echo "<a href=\"./event.php?id=" . $ev['eventid'] . "\"><button type='button' class=\"btn btn-small btnDetails\" id=\"btnDetail" . $ev['eventid'] . "\" value=\"" . $ev['eventid'] . "\">Details</button>";
 	}
 	echo "</div>";
 }

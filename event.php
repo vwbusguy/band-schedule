@@ -28,7 +28,9 @@ if (!isset($ev['date'])){
 }
 echo '<div class="container">';
 echo '<h1>' . date("F d, Y", strtotime($ev['date'])) . '</h1>
-<p><a href="/events.php">Back to Events Page</a></p>';
+<p><a href="/events.php">Back to Events Page</a></p>
+<p class=info>The event details page shows the status of the event including practice times and which users have signed up.  Admins and leaders can manage the event details from this page.</p>
+';
 function drawEvent($ev){
 	$event = new events;
 	$user = new users;
@@ -54,7 +56,7 @@ function drawEvent($ev){
 	if ($ev['practice'] == Null){
 		echo 'There is no practice time set yet for this event.<br/>';
 	}else{
-		echo "The practice for this event will be on " . date("F d, Y, h:i a",strtotime($ev['practice'])) . ".";
+		echo "The practice for this event will be on " . date("l, F d, Y, g:i a",strtotime($ev['practice'])) . ".";
 	}
 	if ($level <= 2){
 		echo '<div id="chgEvPractice" class="bootstrap-timepicker"><input id="datPractice" type="text" class="datepicker inp-practice" placeholder="Practice Date"><input id="timPractice" type="text" class="timepicker inp-practice">';
@@ -104,18 +106,25 @@ function drawEvent($ev){
 	$eventUsers = $event->getEventUsers($ev['eventid']);
 	$eventUStatuses = $event->getEventUserStatuses();
 	foreach ($eventUStatuses as $eUstatus){
-		echo '<h4>' . ucfirst($eUstatus['status']) . ' users for event: </h4>';
+		echo '<div id="divStat' . $eUstatus['status'] . '" class="divStat"><h4>' . ucfirst($eUstatus['status']) . ' users</h4>';
 		$i = 0;
+		$euList = array();
 		foreach($eventUsers as $eUser){
 			if ($eUser['status'] == $eUstatus['id']){
 				$name = $user->getUserNiceName($eUser['userid']);
-				echo $name['first_name'] . " " . $name['last_name'] . '<br/>';
+				$euList[] = $name['first_name'] . " " . $name['last_name'] . '<br/>';
 				$i = $i+1;
 			}
 		}
                 if ($i == 0){
 	                echo 'No users have this status for this event.<br/>';
-                }
+                }else{
+			natcasesort($euList);
+			foreach($euList as $line){
+				echo $line;
+			}
+		}
+		echo "</div>";
 	}
 }
 

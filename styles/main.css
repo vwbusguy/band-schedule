@@ -1,5 +1,6 @@
 body {
 	padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+	font-family: 'Raleway', sans-serif;
 }
 
 #frmAddUser{
@@ -40,6 +41,10 @@ body {
 	margin-left:23px;
 }
 
+p.info{
+	font-style: italic;
+	font-size: 1.1em;
+}
 
 .event {
     float: left;
@@ -48,12 +53,22 @@ body {
     padding: 10px;
 }
 
+.btnDetails{
+	font-weight: bold;	
+}
+
 .event-detail select{
     margin-right:10px;
 }
 
 .event-detail button{
     vertical-align: top;
+}
+
+.divStat{
+	float:left;
+	max-width: 255px;
+	margin-right: 15%; 
 }
 
 .inp-practice{
