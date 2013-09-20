@@ -51,6 +51,13 @@ public function usrConfirm($uid,$eventid){
 	return $this->chkDBError();
 }
 
+public function chgEventStatus($eventid,$status){
+        $this->db->update("events","status","'$status'","eventid = '$eventid'");
+        return $this->chkDBError();
+
+}
+
+
 public function chgUserEvent($uid,$eventid,$status){
 	$this->db->update("event_users","status","'$status'","userid = '$uid' and eventid = '$eventid'");
 	return $this->chkDBError();

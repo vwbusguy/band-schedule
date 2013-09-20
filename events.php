@@ -95,6 +95,7 @@ function drawEvent($ev){
         echo "<h4 class=\"event-h4\" id='h4-event" . $ev['eventid'] . "'><a href='/event.php?id=" . $ev['eventid'] . "'>" . date("F j, Y", strtotime($ev['date'])) . "</a></h4>";
 	$state =  $event->getEventStatus($ev['status']);
 	echo "Event Status: " . ucfirst($state['status']) . "<br/>";
+	if ($ev['status'] != 2){
         if ($ev['leader'] == Null){
         	echo 'There is no leader assigned yet for this event.<br/>';
         }else{
@@ -111,6 +112,7 @@ function drawEvent($ev){
 		echo "<a href=\"./event.php?id=" . $ev['eventid'] . "\"><button type='button' class=\"btn btn-small btnDetails\" id=\"btnDetail" . $ev['eventid'] . "\" value=\"" . $ev['eventid'] . "\">Details</button>";
 	}
 	echo "</div>";
+	}
 }
 function date_compare($a, $b)
 {

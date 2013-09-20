@@ -10,6 +10,20 @@ function addEvent(date){
 		});
 }
 
+function chgEventStatus(eventid,stat){
+        $.post('/services/chgEventStatus.php', {eventid: eventid, status: stat},
+                function(data){
+                        if (data.status == 'ok'){
+                                document.location.reload(true);
+                        }
+                        else{
+                                alert('Could not change event status: ' + data.message);
+                        }
+                },
+                "json");
+}
+
+
 function chgUserEventStatus(eventid,stat){
         $.post('/services/chgUserEventStatus.php', {eventid: eventid, stat: stat},
                 function(data){
@@ -144,6 +158,14 @@ $('.btnChgEvLead').click(function(e){
 	leaderid = $('#selChgEvLead').val();
 	result = setLeader(eventid,leaderid);
 });
+
+$('.btnChgEv').click(function(e){
+        e.preventDefault();
+        eventid = getUrlVars()['id'];
+        stat = $('#selChgEvStat').val();
+        result = chgEventStatus(eventid,stat);
+});
+
 
 $('.btnChgEvUsr').click(function(e){
 	e.preventDefault();

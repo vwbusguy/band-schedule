@@ -41,7 +41,7 @@ function drawEvent($ev){
 		echo "Event Status: " . ucfirst($state['status']) . "<br/>";
 	}else{
 		$statuses = $event->getEventStatuses();
-		echo "<h3>Event Status</h3><div id='chgEvent'><select id='#selChgEvStat'>";
+		echo "<h3>Event Status</h3><div id='chgEvent'><select id='selChgEvStat'>";
 		foreach ($statuses as $status){
 			echo "<option value='" . $status['id'] . "' ";
 			if ($status['id'] == $ev['status']){
@@ -53,6 +53,10 @@ function drawEvent($ev){
 		echo "<button class='btn button btn-primary btnChgEv'>Change Status</button></div>";
 	}
 	
+	if ($ev['status'] == 2){
+		echo "<h4>This event has been cancelled.</h4>";
+	}else{
+		
 	if ($ev['practice'] == Null){
 		echo 'There is no practice time set yet for this event.<br/>';
 	}else{
@@ -125,6 +129,7 @@ function drawEvent($ev){
 			}
 		}
 		echo "</div>";
+	}
 	}
 }
 
