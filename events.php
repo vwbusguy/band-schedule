@@ -111,8 +111,9 @@ function drawEvent($ev){
 		echo "Your status for this event: " . ucfirst($status['status']) . "</div>" ;
 		echo "<a href=\"./event.php?id=" . $ev['eventid'] . "\"><button type='button' class=\"btn btn-small btnDetails\" id=\"btnDetail" . $ev['eventid'] . "\" value=\"" . $ev['eventid'] . "\">Details</button>";
 	}
-	echo "</div>";
 	}
+	echo "</div>";
+	
 }
 function date_compare($a, $b)
 {

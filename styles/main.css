@@ -48,6 +48,7 @@ p.info{
 
 .event {
     float: left;
+    min-height: 10em;
     max-width: 330px;
     min-width: 300px;
     padding: 10px;
