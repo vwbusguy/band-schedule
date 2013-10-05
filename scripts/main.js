@@ -52,6 +52,25 @@ function cnfEvent(username,eventid,btnobject){
 		});
 }
 
+function email(recipient,subject,message){
+	$.ajax({
+        	type: "POST",
+        	url: './mailUser.php',
+        	data: { recipient: recipient,
+                	subject: subject,
+                	message: message
+                	},
+        	dataType: "JSON",
+       	 	success: function(data){
+                	if (data.status == 'ok'){
+                                document.location.reload(true);
+                        }
+                        else{
+                                alert('Could not send email: ' + data.message);
+                        }
+                }});
+}
+
 function getUrlVars() {
     var vars = {};
     var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
