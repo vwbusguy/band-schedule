@@ -135,6 +135,20 @@ public function setLastLogin($username){
         return true;
 }
 
+public function getAllEmails(){
+	$sql = "SELECT email FROM users WHERE status != 2";
+	$result = $this->db->selectAll($sql);
+        if ($this->db->error == 1){
+                $result['status'] = 'failed';
+                $result['error'] = $db->errormsg;
+        }else{
+                $result['status'] = 'ok';
+        }
+        return $result;
+}
+
+
+
 public function getNiceUserLevel($roleId){
 	$sql = "SELECT level_name from user_level where user_level = '$roleId'";
 	$result = $this->db->select($sql);

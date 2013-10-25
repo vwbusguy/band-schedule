@@ -108,7 +108,7 @@ public function getEventUsers($eventid){
 
 
 public function getEventEmails($eventid){
-	$sql = "SELECT u.email from event_users e join users u on e.userid = u.id where e.eventid = '$eventid'";
+	$sql = "SELECT u.email from event_users e join users u on e.userid = u.id where e.eventid = '$eventid' and e.status != 3";
 	$result = $this->db->selectAll($sql);
 	$this->chkDBError();
         return $result;

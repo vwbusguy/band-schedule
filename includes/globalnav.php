@@ -31,6 +31,7 @@ if ($level <= 2){
 	echo "<li><a href=\"/utils/adduser.php\">Add Users</a></li>";
 }
 if ($level == 1){
+	echo "<li><a href=\"/mail.php?type=all\">Email All Users</a></li>";
 	echo "<li><a href=\"/utils/updUser.php\">Manage Users</a></li>";
 }
 	echo "</ul></li>";

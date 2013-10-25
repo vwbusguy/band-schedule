@@ -41,6 +41,12 @@ body {
 	margin-left:23px;
 }
 
+#txtMailBody{
+	width: 80%;
+	min-width: 206px;
+	height: 20em;
+}
+
 p.info{
 	font-style: italic;
 	font-size: 1.1em;

@@ -108,6 +108,9 @@ function drawEvent($ev){
 	}
 
 	echo '<h3>Event Users</h3>';
+	if ($level <= 2){
+		echo '<p><a href="/mail.php?type=event&id=' . $ev['eventid'] . '">Email these users</a></p>';
+	}
 	$eventUsers = $event->getEventUsers($ev['eventid']);
 	$eventUStatuses = $event->getEventUserStatuses();
 	foreach ($eventUStatuses as $eUstatus){
