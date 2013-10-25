@@ -30,7 +30,7 @@ public function getEventsForMonth($month,$year){
 		$newMonth = $month + 1;
 		$newYear = $year;
 	}
-	$sql = "select * from events where date between '$year-$month-01' and '$newYear-$newMonth-01'";
+	$sql = "select * from events where date >= '$year-$month-01' and date < '$newYear-$newMonth-01'";
 	$result = $this->db->selectAll($sql);
 	$this->chkDBError();
 	return $result;
