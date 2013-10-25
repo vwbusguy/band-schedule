@@ -77,11 +77,12 @@ function drawEvent($ev){
 		$leaders = $user->getLeaderList();
 		echo "<div id='chgEventLeader'><select id='selChgEvLead'>";
                 foreach ($leaders as $leader){
+			$lname = $user->getUserNiceName($leader['id']);
                         echo "<option value='" . $leader['id'] . "' ";
                         if ($leader['id'] == $ev['leader']){
                                 echo "selected='selected'";
                         }
-                        echo ">" . ucfirst($leader['username']). " </option>";
+                        echo ">" . $lname['first_name'] . ' ' . $lname['last_name'] . ' (' . $leader['username']. ") </option>";
 		}
 		echo "<select><button class='btn button btn-primary btnChgEvLead'>Change Leader</button></div>";
 	}
