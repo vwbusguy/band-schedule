@@ -107,6 +107,13 @@ public function getEventUsers($eventid){
 }
 
 
+public function getEventEmails($eventid){
+	$sql = "SELECT u.email from event_users e join users u on e.userid = u.id where e.eventid = '$eventid'";
+	$result = $this->db->selectAll($sql);
+	$this->chkDBError();
+        return $result;
+}
+
 public function getEventUserStatuses(){
         $sql = "select * from event_user_status";
         $result = $this->db->selectAll($sql);
@@ -124,13 +131,13 @@ public function getEventsForUser($uid){
 public function setLeader($eventid,$uid){
 	$this->db->update('events','leader',$uid,"eventid = '$eventid'");
         $this->chkDBError();
-        return $result;
+        return true;
 }
 
 public function setPractice($eventid,$date){
         $this->db->update('events','practice',$date,"eventid = '$eventid'");
         $this->chkDBError();
-        return $result;
+        return true;
 }
 
 

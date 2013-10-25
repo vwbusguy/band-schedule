@@ -29,7 +29,7 @@ private function chgDate($eventid, $date){
 	if (isset($event->error)){
 		$this->retError($event->error);
 	}
-	return $result;
+	return true;
 }
 
 }

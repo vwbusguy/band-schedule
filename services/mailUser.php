@@ -8,7 +8,14 @@ public function __construct(){
 	if ((!isset($_POST['recipient'])) or (!isset($_POST['subject'])) or (!isset($_POST['message']))){
 		$this->retError('Must specify recipient, subject, and message');
 	}
-	$result = $this->mailUser($_POST['recipient'],$_POST['subject'],$_POST['message']); 
+	$to = $_POST['recipient'];
+	if (isset($to['email'])){
+		$recipient = $to['email'];
+	}else{
+		$recipient = $to;
+	}
+	$result = $this->mailUser($recipient,$_POST['subject'],$_POST['message']); 
+	$result['recipient'] = $recipient;
 	echo json_encode($result);
 }
 

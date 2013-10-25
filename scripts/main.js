@@ -55,20 +55,35 @@ function cnfEvent(username,eventid,btnobject){
 function email(recipient,subject,message){
 	$.ajax({
         	type: "POST",
-        	url: './mailUser.php',
+        	url: '/services/mailUser.php',
+		async: false,
         	data: { recipient: recipient,
                 	subject: subject,
                 	message: message
                 	},
         	dataType: "JSON",
        	 	success: function(data){
-                	if (data.status == 'ok'){
-                                document.location.reload(true);
-                        }
-                        else{
+                	if (data.status != 'ok'){
                                 alert('Could not send email: ' + data.message);
                         }
                 }});
+}
+
+function getEventEmails(eventid,callback){
+	$.ajax({
+		url: '/services/getEventEmails.php',
+		async: false,
+		type: 'GET',
+		data: {eventid : eventid},
+		dataType: 'json',
+		success:function(data){
+			if (data.status == 'ok'){
+				callback(data.data);
+			}else{
+				alert("Could not get event emails due to: " + data.message);
+			}
+		}
+	});
 }
 
 function getUrlVars() {
@@ -87,6 +102,17 @@ function getUserLevel(callback){
         	dataType: 'json',
         	success:function(data){callback(data)}
 	});
+}
+
+function sendPracticeEmail(emails){
+        day = $('#datPractice').val();
+        time = $('#timPractice').val();
+	event_date = $('h1').text();
+	for (i=0; i < emails.length;i++){
+		email(emails[i],'Practice update for ' + event_date, 'The practice time has been updated for the event on '
+		+ event_date + '.  Practice will be held on ' + day + ' at ' + time + '.  This email is automatically '
+		+ 'generated.  Do not reply to this email.'); 
+	}
 }
 
 function setEventConfirm(result,btnobject){
@@ -117,6 +143,7 @@ function setPractice(eventid,practice){
         $.post('/services/chgPractice.php', {eventid: eventid, date: practice},
                 function(data){
                         if (data.status == 'ok'){
+				getEventEmails(eventid,sendPracticeEmail);
                                 document.location.reload(true);
                         }
                         else{
