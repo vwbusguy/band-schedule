@@ -27,7 +27,7 @@ if ($type == 'event'){
 	$user = new users;
 	if (isset($_POST['submit'])){
 		$emails = $user->getAllEmails();
-		$_POST['body'] .= "\n\nMessage sent to all users by " . ucfirst($_SESSSION['username']) . ".";
+		$_POST['body'] .= "\n\nMessage sent to all users by " . ucfirst($_SESSION['username']) . ".";
 	}
 }
 if (isset($emails)){
