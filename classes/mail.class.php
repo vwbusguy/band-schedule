@@ -20,7 +20,7 @@ private function reterror($message){
 
 public function sendmail($recipient,$subject,$message){
 	try{
-		$headers = "From: noreply@" . $_SERVER['SERVER_NAME'];
+		$headers = "From: Worship Team App <noreply@" . $_SERVER['SERVER_NAME'] . ">";
 		mail($recipient,$subject,$message,$headers);
 	} catch(Exception $e){
 		$this->reterror($e);
