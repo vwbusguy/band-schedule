@@ -11,7 +11,7 @@
             <ul class="nav">
               <li><a href="/">Home</a></li>
 <?php
-require_once('/srv/www/worship/classes/users.class.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/classes/users.class.php');
 $user = new users();
 $level = $user->getUserRoleId($_SESSION['username']);
 if ($level > 2){

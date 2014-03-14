@@ -1,6 +1,6 @@
 <?php
 
-require_once('/srv/www/worship/classes/db.class.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/classes/db.class.php');
 
 class users{
 
