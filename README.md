@@ -6,15 +6,15 @@ This app was created as a solution to a church music team as a way to schedule m
 ##Requirements##
 
 ###Server###
-PHP 5.3 or newer - PHP 5.5 recommended
-MySQL 5.0+ compliant database - MariaDB 5.5 recommended
-Developed and tested on CentOS 6.  Linux recommended.
+* PHP 5.3 or newer - PHP 5.5 recommended
+* MySQL 5.0+ compliant database - MariaDB 5.5 recommended
+* Developed and tested on CentOS 6.  Linux recommended.
 
 ###Client###
 
-A modern browser that supports HTML5 (Mozilla Firefox recommended)
-No flash or java plugins are required
-Fully responsive - Works on most modern smart phones (Developed for Android, tested on iOS)
+* A modern browser that supports HTML5 (Mozilla Firefox recommended)
+* No flash or java plugins are required
+* Fully responsive - Works on most modern smart phones (Developed for Android, tested on iOS)
 
 ##Installing##
 
