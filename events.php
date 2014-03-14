@@ -11,6 +11,8 @@ $event = new events();
 <style type="text/css">
 select{
 	width: 6em;
+	padding-bottom: 0;
+	margin-bottom:0;
 }
 
 </style>
@@ -19,9 +21,9 @@ select{
 <h1>Scheduled Events</h1>
 
 <p class="info">Welcome to the events page.  Here you can see events at a glance by month.  You can quickly signup for one here.  To see details or make changes, click on the date of the event.</p>
-
+<h5>Change Month </h5>
 <form id="selMonth" method="POST" action="/events.php">
-<select name="month">
+<select id="selEvMonth" name="month">
 <option value='' disabled>Month</option>
 <?php 
 if (isset($_POST['month'])){
@@ -40,7 +42,7 @@ while ($i <= 12){
 }
 ?>
 </select>
-<select name="year">
+<select id="selEvYear" name="year">
 <option value='' disabled>Year</option>
 <?php
 if (isset($_POST['year'])){
@@ -60,16 +62,8 @@ while ($i <= 3){
 	$i = $i + 1;
 }
 ?>
-</select> <br/>
-<input type="submit" class="button btnSubmit btn btn-small" value="Change month">
-<p>
-<?php
-$level = $user->getUserRoleId($_SESSION['username']);
-if ($level <= 2){
-	echo '<br/><a href="/utils/addEvent.php">Add a new event</a>';
-}
-?>
-</p>
+</select>
+</form>
 
 <?php
 if (isset($_POST['month']) and isset($_POST['year'])){
@@ -84,6 +78,11 @@ if (isset($_POST['month']) and isset($_POST['year'])){
 
 
 echo "<h3 id=\"events-h3\">Events for $txtMonth $year</h3>";
+
+$level = $user->getUserRoleId($_SESSION['username']);
+if ($level <= 2){
+        echo '<p><a href="/utils/addEvent.php">Add a new event</a></p>';
+}
 
 
 
@@ -135,6 +134,20 @@ if ($curEvents == Null){
 
 
 </div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#selEvYear').change(function(){
+		$('form#selMonth').submit();
+	});
+        $('#selEvMonth').change(function(){
+                $('form#selMonth').submit();
+        });
+
+});
+
+
+</script>
 
 <?php require_once('./includes/footer.php'); ?>
 

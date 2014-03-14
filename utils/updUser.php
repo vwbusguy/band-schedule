@@ -33,7 +33,13 @@ foreach ($userinfo as $key=>$val){
 if ($key != 'id'){
 	if ($key == 'last_login' or $key == 'username'){
                 $fieldTitle = ucfirst(str_replace('_',' ',$key));
-                echo "<h4 id='txt$key'>$fieldTitle: $val</h4>";
+                echo "<h4 id='txt$key'>$fieldTitle: ";
+		if ($key == 'last_login'){
+			echo date("F d, Y, h:i a", strtotime($val));
+		}else{
+			echo $val;
+		}
+		echo "</h4>";
 	}elseif($key != 'user_level' and $key != 'status'){
 		$fieldTitle = ucfirst(str_replace('_',' ',$key));
 		echo "<h4>$fieldTitle</h4>";
@@ -47,7 +53,7 @@ if ($key != 'id'){
 				if ($level['user_level'] == $val){
 					echo ' selected="selected"';
 				}
-				echo '>' . $level['level_name'] . '</option>';
+				echo '>' . ucfirst($level['level_name']) . '</option>';
 			}
 		} 
 		echo '</select>';
@@ -60,7 +66,7 @@ if ($key != 'id'){
 			if ($stat['id'] == $val){
 				$option .= " selected=\"selected\"";
 			}
-			$option .=">" . $stat['status'] . "</option>";
+			$option .=">" . ucfirst($stat['status']) . "</option>";
 			echo $option;
 		}
 		echo "</select>";
