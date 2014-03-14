@@ -33,6 +33,11 @@ class db{
 		
 	}
 
+	public function remove($table,$condition){
+		$sql = "DELETE FROM $table WHERE $condition";
+		$this->query($sql);
+	}
+
 	//Expects array with keys as column, values as values
 	public function insert($table,$data){
 		$sql = "INSERT INTO $table (";
