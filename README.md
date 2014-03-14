@@ -10,7 +10,7 @@ PHP 5.3 or newer - PHP 5.5 recommended
 MySQL 5.0+ compliant database - MariaDB 5.5 recommended
 Developed and tested on CentOS 6.  Linux recommended.
 
-###Client side### 
+###Client###
 
 A modern browser that supports HTML5 (Mozilla Firefox recommended)
 No flash or java plugins are required
