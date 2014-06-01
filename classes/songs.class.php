@@ -74,6 +74,16 @@ public function getSongData($songid){
         return $result;
 }
 
+
+public function searchSongs($query){
+        $sql = "SELECT a.artist, s.artistid, s.song FROM song_artists a JOIN songs s ON a.id = s.artistid JOIN song_meta m ON m.song_id = s.id where s.song LIKE '%$query%' or a.artist LIKE '%$query%' or m.attribute LIKE '%$query%'";
+        $result = $this->db->selectAll($sql);
+        if ($this->db->error){
+                $this->err($this->db->errormsg);
+        }
+        return $result;
+}
+
 public function searchSongs($query){
 	$sql = "SELECT a.artist s.artistid s.song FROM song_artists a JOIN songs s ON a.id = s.artistid where s.song LIKE '%$query%' or a.artist LIKE '%$query%'";
 	$result = $this->db->selectAll($sql);
@@ -81,6 +91,15 @@ public function searchSongs($query){
                 $this->err($this->db->errormsg);
         }
         return $result;
+}
+
+public function updateSongMeta($songid,$meta){
+	$this->db->remove('song_meta', "song_id = $songid");
+	foreach explode(',',$meta) as $attr{
+		$row = { 'song_id' => $songid,
+			'attribute' => $attr};
+		$this->db->insert('song_meta',$row);
+	}
 }
 
 }
