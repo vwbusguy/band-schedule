@@ -231,10 +231,6 @@ $('.btnChgPractice').click(function(e){
 	}
 });
 
-$('.dropdown-toggle').click(function(){
-	$(this).parent().toggleClass('open');
-});
-
 $('.datepicker').datepicker({
 	format:'yyyy-mm-dd',
 	weekStart:0,

@@ -3,6 +3,10 @@ body {
 	font-family: 'Raleway', sans-serif;
 }
 
+#main-content {
+	margin-top: 40px;
+}
+
 #frmAddUser{
 	padding:20px;
 }
@@ -78,6 +82,10 @@ p.info{
 	margin-right: 15%; 
 }
 
+.chgEvent{
+	display:none;
+}
+
 .inp-practice{
 	margin-right:10px;
 	width:91px;
@@ -111,6 +119,7 @@ font-weight:bold;
 font-weight:bold;
 color:red;
 }
+
 
 @media only screen and (max-width: 977px){
 
