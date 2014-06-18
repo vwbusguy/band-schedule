@@ -61,7 +61,7 @@ if (isset($_POST['subject'])){
 ?>
 >
 </input><br/>
-<textarea id='txtMailBody' name="body"  placeholder="Message">
+<textarea id='txtMailBody' name="body"  spellcheck="true" placeholder="Message">
 <?php
 if (isset($_POST['body'])){
 	echo $_POST['body'];
