@@ -119,7 +119,7 @@ function setEventConfirm(result,btnobject){
 	eventid = $(btnobject).val();
         if (result.status == "success"){
                 $('#divstat' + eventid).text('You are scheduled for this event.');
-		$(btnobject).attr('disabled',true);
+		$(btnobject).replaceWith("<a href='/event.php?id=" + eventid + "'><button class='btn btn-success btnDetails' id='btnDetail" + eventid + "' value='" + eventid + "' type='button'>Details</button></a>");
         }else{
                 $('#divstat' + eventid).addClass('error').text("There was an error confirming your reservation.");
         }

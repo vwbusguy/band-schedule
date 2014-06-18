@@ -108,7 +108,7 @@ function drawEvent($ev){
 		echo "<button type='button' class=\"btn btn-primary btnEventConfirm\" id=\"btnConfirm" . $ev['eventid'] . "\" value=\"" . $ev['eventid'] . "\">Sign up</button>";
 	}else{
 		echo "Your status for this event: " . ucfirst($status['status']) . "</div>" ;
-		echo "<a href=\"./event.php?id=" . $ev['eventid'] . "\"><button type='button' class=\"btn btn-small btnDetails\" id=\"btnDetail" . $ev['eventid'] . "\" value=\"" . $ev['eventid'] . "\">Details</button>";
+		echo "<a href=\"./event.php?id=" . $ev['eventid'] . "\"><button type='button' class=\"btn btn-success btnDetails\" id=\"btnDetail" . $ev['eventid'] . "\" value=\"" . $ev['eventid'] . "\">Details</button>";
 	}
 	}
 	echo "</div>";
