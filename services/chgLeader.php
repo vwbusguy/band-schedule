@@ -13,6 +13,7 @@ public function __construct($type='id'){
 		$this->retError('Insuffient permissions to change user.');
 	}
 	$this->chgLeader($_POST['eventid'],$_POST['leaderid']);
+	$this->cnfEvent($_POST['eventid'],$_POST['leaderid']);
 	$result['status'] = 'ok';
 	echo json_encode($result);
 }
@@ -29,7 +30,21 @@ private function chgLeader($eventid, $leaderid){
 	if (isset($event->error)){
 		$this->retError($event->error);
 	}
-	return $result;
+	return true;
+}
+
+private function cnfEvent($eventid, $leaderid){
+	$event = new events;
+	$status = $event->chkUserEventStatus($eventid,$leaderid);
+	if ($status == Null){
+		$event->usrConfirm($leaderid,$eventid);
+	}elseif ($status != 1){
+		$event->chgUserEvent($leaderid,$eventid,1);
+	}
+        if (isset($event->error)){
+                $this->retError($event->error);
+        }
+	return true;
 }
 
 }
