@@ -41,9 +41,9 @@ private function cnfEvent($eventid, $leaderid){
 	}elseif ($status != 1){
 		$event->chgUserEvent($leaderid,$eventid,1);
 	}
-        if (isset($event->error)){
-                $this->retError($event->error);
-        }
+	if (isset($event->error)){
+		$this->retError($event->error);
+	}
 	return true;
 }
 
