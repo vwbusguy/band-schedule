@@ -1,8 +1,8 @@
--- MySQL dump 10.14  Distrib 5.5.33a-MariaDB, for Linux (x86_64)
+-- MySQL dump 10.14  Distrib 5.5.44-MariaDB, for Linux (x86_64)
 --
 -- Host: localhost    Database: fcc_worship
 -- ------------------------------------------------------
--- Server version	5.5.33a-MariaDB
+-- Server version	5.5.44-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -71,7 +71,7 @@ CREATE TABLE `event_users` (
   `userid` int(11) DEFAULT NULL,
   `status` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=135 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=566 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -87,8 +87,9 @@ CREATE TABLE `events` (
   `practice` datetime DEFAULT NULL,
   `leader` int(11) DEFAULT NULL,
   `status` int(11) DEFAULT NULL,
+  `active` int(11) DEFAULT '1',
   PRIMARY KEY (`eventid`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=136 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -101,6 +102,21 @@ DROP TABLE IF EXISTS `song_artists`;
 CREATE TABLE `song_artists` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `artist` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `song_meta`
+--
+
+DROP TABLE IF EXISTS `song_meta`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `song_meta` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `song_id` int(11) DEFAULT NULL,
+  `attribute` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -170,7 +186,7 @@ CREATE TABLE `users` (
   `last_login` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -182,4 +198,4 @@ CREATE TABLE `users` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-10-26  3:25:07
+-- Dump completed on 2015-06-25 10:05:26
