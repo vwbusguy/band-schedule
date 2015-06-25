@@ -16,7 +16,7 @@ private function chkDBError(){
 }
 
 public function getAllEvents(){
-	$sql = "select * from events";
+	$sql = "select * from events where active = 1";
 	$result = $this->db->selectAll($sql);
 	$this->chkDBError();
 	return $result;
@@ -30,7 +30,7 @@ public function getEventsForMonth($month,$year){
 		$newMonth = $month + 1;
 		$newYear = $year;
 	}
-	$sql = "select * from events where date >= '$year-$month-01' and date < '$newYear-$newMonth-01'";
+	$sql = "select * from events where date >= '$year-$month-01' and date < '$newYear-$newMonth-01 and active = 1'";
 	$result = $this->db->selectAll($sql);
 	$this->chkDBError();
 	return $result;
@@ -122,7 +122,7 @@ public function getEventUserStatuses(){
 }
 
 public function getEventsForUser($uid){
-	$sql = "select u.status,e.eventid,e.date,e.leader from events e inner join event_users u where u.eventid = e.eventid and u.userid = '$uid'";
+	$sql = "select u.status,e.eventid,e.date,e.leader from events e inner join event_users u where u.eventid = e.eventid and u.userid = '$uid' and e.active = 1";
         $result = $this->db->selectAll($sql);
         $this->chkDBError();
         return $result;
