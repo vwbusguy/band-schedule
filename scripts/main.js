@@ -159,7 +159,7 @@ function setSession(username){
         $.post('/services/setSession.php', {username: username},
                 function(data){
                         if (data.status == 'ok'){
-                                window.location.href = "/index.php";
+                                window.location.href = "/events.php";
                         }
                         else{
                                 alert('Could not set session!');
