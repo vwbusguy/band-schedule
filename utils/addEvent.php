@@ -6,6 +6,7 @@ require_once('../includes/globalnav.php');
 ?>
 <div class="container">
 <h1>Add an Event</h1>
+<p><a href="/events.php">Back to Events Page</a></p>
 <p>
 <?php
 if (isset($_POST['date'])){
