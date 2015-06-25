@@ -57,7 +57,6 @@ public function chgEventStatus($eventid,$status){
 
 }
 
-
 public function chgUserEvent($uid,$eventid,$status){
 	$this->db->update("event_users","status","'$status'","userid = '$uid' and eventid = '$eventid'");
 	return $this->chkDBError();
@@ -69,6 +68,11 @@ public function chkUserEventStatus($eventid,$username){
         $result = $this->db->select($sql);
         $this->chkDBError();
         return $result;
+}
+
+public function deactivateEvent($eventid){
+        $this->db->update('events','active',0,"eventid = '$eventid'");
+        return $this->chkDBError();
 }
 
 public function getEventInfo($eventid){
