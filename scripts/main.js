@@ -52,6 +52,20 @@ function cnfEvent(username,eventid,btnobject){
 		});
 }
 
+function delEvent(eventid){
+        $.post('/services/delEvent.php', {eventid: eventid},
+                function(data){
+                        if (data.status == 'ok'){
+                                window.location.href = '/events.php';
+                        }
+                        else{
+                                alert('Could not change event status: ' + data.message);
+                        }
+                },
+                "json");
+}
+
+
 function email(recipient,subject,message){
 	$.ajax({
         	type: "POST",
@@ -228,6 +242,14 @@ $('.btnChgPractice').click(function(e){
 	if (day.length > 9){
 		practice = "'" + day + ' ' + time + ":00'";
         	result = setPractice(eventid,practice);
+	}
+});
+
+$('.btnDelEv').click(function(e){
+	e.preventDefault();
+	eventid = getUrlVars()['id'];
+	if (confirm("Deleting an event cannot be undone.  If not sure, consider cancelling it instead.  Continue?")){
+		result = delEvent(eventid);
 	}
 });
 
