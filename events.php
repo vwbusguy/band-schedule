@@ -22,12 +22,12 @@ select{
 
 <p class="info">Welcome to the events page.  Here you can see events at a glance by month.  You can quickly signup for one here.  To see details or make changes, click on the date of the event.</p>
 <h5>Change Month </h5>
-<form id="selMonth" method="POST" action="/events.php">
+<form id="selMonth" method="GET" action="/events.php">
 <select id="selEvMonth" name="month">
 <option value='' disabled>Month</option>
 <?php 
-if (isset($_POST['month'])){
-	$mon = $_POST['month'];
+if (isset($_GET['month'])){
+	$mon = $_GET['month'];
 }else{
 	$mon = date('m');
 }
@@ -46,7 +46,7 @@ while ($i <= 12){
 <option value='' disabled>Year</option>
 <?php
 if (isset($_POST['year'])){
-        $yr = $_POST['year'];
+        $yr = $_GET['year'];
 }else{
 	$yr = date('Y');
 }
@@ -66,9 +66,9 @@ while ($i <= 3){
 </form>
 
 <?php
-if (isset($_POST['month']) and isset($_POST['year'])){
-	$month = $_POST['month'];
-	$year = $_POST['year'];
+if (isset($_GET['month']) and isset($_GET['year'])){
+	$month = $_GET['month'];
+	$year = $_GET['year'];
 	$txtMonth = date("F",mktime(0,0,0,$month,10));
 }else{
 	$month = date('m');
