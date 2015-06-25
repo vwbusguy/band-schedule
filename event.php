@@ -27,8 +27,12 @@ if (!isset($ev['date'])){
         header('Location: /events.php');
 }
 echo '<div class="container">';
-echo '<h1>' . date("F d, Y", strtotime($ev['date'])) . '</h1>
-<p><a href="/events.php">Back to Events Page</a></p>
+echo '<h1>' . date("F d, Y", strtotime($ev['date']));
+if ($level = 1){
+	echo '  <button type="button" class="btn btn-danger btnDelEv" data-eventid="' . $_GET['id'] . '">Delete Event</button>';
+}
+
+echo '</h1><p><a href="/events.php">Back to Events Page</a></p>
 <p class=info>The event details page shows the status of the event including practice times and which users have signed up.  Admins and leaders can manage the event details from this page.</p>
 ';
 function drawEvent($ev){
