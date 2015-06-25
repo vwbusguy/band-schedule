@@ -214,7 +214,7 @@ $('.btnEventConfirm').click(function(e){
 	result = cnfEvent(window.curUser,eventid,$(this));
 });
 
-$('.btnChgEvLead').click(function(e){
+$('#selChgEvLead').change(function(e){
 	e.preventDefault();
 	eventid = getUrlVars()['id'];
 	leaderid = $('#selChgEvLead').val();

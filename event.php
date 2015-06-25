@@ -86,7 +86,7 @@ function drawEvent($ev){
                         }
                         echo ">" . $lname['first_name'] . ' ' . $lname['last_name'] . ' (' . $leader['username']. ") </option>";
 		}
-		echo "<select><button class='btn button btn-primary btnChgEvLead'>Change Leader</button></div>";
+		echo "</select></div>";
 	}
 	$status = $event->chkUserEventStatus($ev['eventid'],$_SESSION['username']);
 	echo '<div id="divstat' . $ev['eventid'] . '">';
