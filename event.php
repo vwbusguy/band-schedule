@@ -112,6 +112,7 @@ function drawEvent($ev){
 
 	echo '</div></div><div id="evUsers"><h3>Event Users</h3>';
 	if ($level <= 2){
+		echo '<p class="evUserAdd"><a id="addEventUser">Schedule a user</a></p>';
 		echo '<p><a href="/mail.php?type=event&id=' . $ev['eventid'] . '">Email these users</a></p>';
 	}
 	$eventUsers = $event->getEventUsers($ev['eventid']);

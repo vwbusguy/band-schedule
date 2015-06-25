@@ -48,8 +48,13 @@ function cnfEvent(username,eventid,btnobject){
 			type: "confirm"},
 		dataType: 'JSON'
 		}).done(function(data){
-			setEventConfirm(data,btnobject);
-		});
+                        if (typeof btnobject !== 'undefined'){
+                                setEventConfirm(data,btnobject);
+                        }else{  
+                                document.location.reload(true);
+                        }
+		}
+	);
 }
 
 function delEvent(eventid){
@@ -207,12 +212,33 @@ function valAlphaNum(string){
 
 $(document).ready(function(){
 
+$('a#addEventUser').click(function(e){
+        var pparent = $(this).parent();
+        $.get('/services/getUserList.php',function(data) {
+                data = JSON.parse(data);
+                list = '<option value="Select User" selected="selected" disabled>Select User</option>';
+                $.each(data,function(i,u){
+                        if (i != 'status'){
+                                list += '<option value="' + u.username +'">' + u.username + '</option>';
+                        }
+                });
+                pparent.html('<select id="selAddEventUser">' + list + '</select>');
+		$(document).on('change','#selAddEventUser',function(){
+	        	eventid = getUrlVars()['id'];
+	        	userid = $('#selAddEventUser').val();
+		        result = cnfEvent(userid,eventid);
+		});
+        });
+});
+
+
 $('.btnEventConfirm').click(function(e){
 	e.preventDefault();
 	eventid = $(this).val();
 	setUsername();
 	result = cnfEvent(window.curUser,eventid,$(this));
 });
+
 
 $('#selChgEvLead').change(function(e){
 	e.preventDefault();
