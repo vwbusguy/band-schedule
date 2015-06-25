@@ -70,6 +70,7 @@ p.info{
 
 .event-detail select{
     margin-right:10px;
+    min-width: 220px;
 }
 
 .event-detail button{
@@ -84,7 +85,7 @@ p.info{
 
 .inp-practice{
 	margin-right:10px;
-	width:91px;
+	width:105px;
 }
 
 .login-container{
