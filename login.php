@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_COOKIE['auth'])){
-	setcookie('fccw','auth',time()+60*60*24*30,'/','worship.foothill.org',False,False);
+	setcookie('fccw','auth',time()+60*60*24*30,'/',$_SERVER['HTTP_HOST'],False,False);
 }
 
 require_once('includes/head.php');
