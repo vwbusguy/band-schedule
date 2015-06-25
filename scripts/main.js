@@ -219,7 +219,7 @@ $('.btnChgEvLead').click(function(e){
 	result = setLeader(eventid,leaderid);
 });
 
-$('.btnChgEv').click(function(e){
+$('#selChgEvStat').change(function(e){
         e.preventDefault();
         eventid = getUrlVars()['id'];
         stat = $('#selChgEvStat').val();

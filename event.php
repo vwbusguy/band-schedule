@@ -53,8 +53,7 @@ function drawEvent($ev){
 			}
 			echo ">" . ucfirst($status['status']). " </option>";
 		}
-		echo "</select>";
-		echo "<button class='btn button btn-primary btnChgEv'>Change Status</button></div>";
+		echo "</select></div>";
 	}
 	
 	if ($ev['status'] == 2){
