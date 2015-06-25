@@ -94,7 +94,7 @@ function drawEvent($ev){
 	echo '</div><div id="evStatus" ><h4>Your Status</h4><div id="divstat' . $ev['eventid'] . '">';
 	if ($status == Null){
 		echo "You are not yet signed up for this date.<br/></div>";
-		echo "<button type='button' class=\"btn btn-primary btnEventConfirm\" id=\"btnConfirm" . $ev['eventid'] . "\" value=\"" . $ev['eventid'] . "\">Sign up</button></div>";
+		echo "<button type='button' class=\"btn btn-primary btnEventConfirm\" id=\"btnConfirm" . $ev['eventid'] . "\" value=\"" . $ev['eventid'] . "\">Sign up</button>";
 	}else{
 		$eventUStatuses = $event->getEventUserStatuses();
 		echo "<div id='chgEventStatus'>";
