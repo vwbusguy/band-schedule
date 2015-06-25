@@ -66,8 +66,7 @@ function drawEvent($ev){
 		echo "The practice for this event will be on " . date("l, F d, Y, g:i a",strtotime($ev['practice'])) . ".";
 	}
 	if ($level <= 2){
-		echo '<div id="chgEvPractice" class="bootstrap-timepicker"><input id="datPractice" type="text" class="datepicker inp-practice" placeholder="Practice Date"><input id="timPractice" type="text" class="timepicker inp-practice">';
-		echo '<button class="btn button btn-primary btnChgPractice">Change Practice</button></div>';
+		echo '<div id="chgEvPractice" class="bootstrap-timepicker"><input id="datPractice" type="text" class="datepicker inp-practice" placeholder="Practice Date"><input id="timPractice" type="text" class="timepicker inp-practice"></div>';
 	}
 
         if ($ev['leader'] == Null){

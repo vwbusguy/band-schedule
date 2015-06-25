@@ -92,7 +92,9 @@ function getEventEmails(eventid,callback){
 		dataType: 'json',
 		success:function(data){
 			if (data.status == 'ok'){
-				callback(data.data);
+				if (data.data !== null){
+					callback(data.data);
+				}
 			}else{
 				alert("Could not get event emails due to: " + data.message);
 			}
@@ -234,7 +236,7 @@ $('.btnChgEvUsr').click(function(e){
 	result = chgUserEventStatus(eventid,stat);
 });
 
-$('.btnChgPractice').click(function(e){
+$('div#chgEvPractice input').blur(function(e){
         e.preventDefault();
         eventid = getUrlVars()['id'];
         day = $('#datPractice').val();
