@@ -92,7 +92,9 @@ function getEventEmails(eventid,callback){
 		dataType: 'json',
 		success:function(data){
 			if (data.status == 'ok'){
-				callback(data.data);
+				if (data.data !== null){
+					callback(data.data);
+				}
 			}else{
 				alert("Could not get event emails due to: " + data.message);
 			}
@@ -212,14 +214,14 @@ $('.btnEventConfirm').click(function(e){
 	result = cnfEvent(window.curUser,eventid,$(this));
 });
 
-$('.btnChgEvLead').click(function(e){
+$('#selChgEvLead').change(function(e){
 	e.preventDefault();
 	eventid = getUrlVars()['id'];
 	leaderid = $('#selChgEvLead').val();
 	result = setLeader(eventid,leaderid);
 });
 
-$('.btnChgEv').click(function(e){
+$('#selChgEvStat').change(function(e){
         e.preventDefault();
         eventid = getUrlVars()['id'];
         stat = $('#selChgEvStat').val();
@@ -234,7 +236,7 @@ $('.btnChgEvUsr').click(function(e){
 	result = chgUserEventStatus(eventid,stat);
 });
 
-$('.btnChgPractice').click(function(e){
+$('div#chgEvPractice input').blur(function(e){
         e.preventDefault();
         eventid = getUrlVars()['id'];
         day = $('#datPractice').val();

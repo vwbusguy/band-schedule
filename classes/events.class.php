@@ -44,6 +44,11 @@ public function addEvent($date){
 }
 
 public function usrConfirm($uid,$eventid){
+	$sql = "SELECT COUNT(*) from event_users where eventid = $eventid and userid = $uid";
+	$count = $this->db->select($sql);
+	if ($count['COUNT(*)'] > 0){
+		return $this->chkDBError;
+	}
 	$data['eventid'] = $eventid;
 	$data['userid'] = $uid;
 	$data['status'] = 1;
