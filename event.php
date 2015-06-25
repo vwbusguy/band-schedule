@@ -60,7 +60,7 @@ function drawEvent($ev){
 		echo "<h4>This event has been cancelled.</h4>";
 	}else{
 	
-	echo "<h4>Practice</h4>";	
+	echo "<div id=\"evPractice\" class='divStat'><h4>Practice</h4>";	
 	if ($ev['practice'] == Null){
 		echo 'There is no practice time set yet for this event.<br/>';
 	}else{
@@ -70,7 +70,7 @@ function drawEvent($ev){
 		echo '<div id="chgEvPractice" class="bootstrap-timepicker"><input id="datPractice" type="text" class="datepicker inp-practice" placeholder="Practice Date"><input id="timPractice" type="text" class="timepicker inp-practice"></div>';
 	}
 
-	echo "<h4>Leader</h4>";
+	echo "</div><div id=\"evLeader\" class='divStat'><h4>Leader</h4>";
         if ($ev['leader'] == Null){
         	echo 'There is no leader assigned yet for this event.<br/>';
         }else{
@@ -91,7 +91,7 @@ function drawEvent($ev){
 		echo "</select></div>";
 	}
 	$status = $event->chkUserEventStatus($ev['eventid'],$_SESSION['username']);
-	echo '<h4>Your Status</h4><div id="divstat' . $ev['eventid'] . '">';
+	echo '</div><div id="evStatus" ><h4>Your Status</h4><div id="divstat' . $ev['eventid'] . '">';
 	if ($status == Null){
 		echo "You are not yet signed up for this date.<br/></div>";
 		echo "<button type='button' class=\"btn btn-primary btnEventConfirm\" id=\"btnConfirm" . $ev['eventid'] . "\" value=\"" . $ev['eventid'] . "\">Sign up</button></div>";
@@ -110,7 +110,7 @@ function drawEvent($ev){
                 echo "</select></div>";
 	}
 
-	echo '<h3>Event Users</h3>';
+	echo '</div></div><div id="evUsers"><h3>Event Users</h3>';
 	if ($level <= 2){
 		echo '<p><a href="/mail.php?type=event&id=' . $ev['eventid'] . '">Email these users</a></p>';
 	}
@@ -144,7 +144,7 @@ drawEvent($ev);
 
 ?>
 
-
+</div>
 </div>
 
 <?php require_once('./includes/footer.php'); ?>

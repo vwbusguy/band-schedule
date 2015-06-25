@@ -3,6 +3,10 @@ body {
 	font-family: 'Raleway', sans-serif;
 }
 
+div#evUsers, div#evStatus {
+	clear:both;
+}
+
 #main-content {
 	margin-top: 40px;
 }
@@ -81,7 +85,10 @@ p.info{
 	float:left;
 	max-width: 255px;
 	margin-right: 15%; 
+	display: inline-block;
+	padding-bottom: 25px;
 }
+
 
 .inp-practice{
 	margin-right:10px;
