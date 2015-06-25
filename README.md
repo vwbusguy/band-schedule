@@ -24,7 +24,7 @@ These steps should be automated by a script soon!
 [Create a database](https://mariadb.com/kb/en/create-database/) and [database user](https://mariadb.com/kb/en/create-user/) with permissions.  For example:
 
 ```
-CREATE DATABASE band-sched;
+CREATE DATABASE band_sched;
 CREATE USER "foo" identified by "1337";
 GRANT ALL on band-sched.* to "foo"@"localhost" identified by "1337";
 
@@ -35,7 +35,7 @@ mysql -u foo -p band_sched < examples/sched.sql
 ```
 Create an initial user:
 ```
-USE band-sched
+USE band_sched
 INSERT INTO users (username,password,user_level,status) VALUES ('admin',MD5('a good password'),1,1);
 ```
 One last step.  Make an .ini file somewhere outside of your web root like this:
