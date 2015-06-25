@@ -107,8 +107,7 @@ function drawEvent($ev){
                         }
                         echo ">" . ucfirst($eUstatus['status']). " </option>";
                 }
-                echo "</select>";
-                echo "<button class='btn button btn-primary btnChgEvUsr'>Change Status</button></div>";
+                echo "</select></div>";
 	}
 
 	echo '<h3>Event Users</h3>';

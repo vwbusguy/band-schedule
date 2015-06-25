@@ -229,7 +229,7 @@ $('#selChgEvStat').change(function(e){
 });
 
 
-$('.btnChgEvUsr').click(function(e){
+$('select#selChgEvStatUsr').change(function(e){
 	e.preventDefault();
 	eventid = getUrlVars()['id'];
 	stat = $('#selChgEvStatUsr').val();
