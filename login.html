@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="band-sched">
+<head data-ng-controller="HeadCtrl">
+	<script type="text/javascript" src="scripts/angular.js"></script>
+	<script type="text/javascript" src="scripts/ang-app.js"></script>
+	<ng-include src="'/includes/head.html'"></ng-include>
+</head>
+<?php
+session_start();
+if (!isset($_COOKIE['auth'])){
+	setcookie('fccw','auth',time()+60*60*24*30,'/',$_SERVER['HTTP_HOST'],False,False);
+}
+<body>
+
+<div class="gray login-container">
+
+<h1 id="login-title">FCC Worship Scheduling Center</h1>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Just passing by?  Get the code on <a href="https://github.com/vwbusguy/band-schedule">GitHub</a>.</p>
+
+<form id="login">
+<h2 id="login-heading">Login</h2>
+<input id="username" type="text" name="username" placeholder="Username"><br/>
+<input id="password" type="password" name="password" placeholder="Password"><br/>
+<button class="btn btn-large btn-primary" type="submit">Sign In</button>
+</form>
+
+</div>
+<ng-include src="'/includes/footer.html'"></ng-include>
