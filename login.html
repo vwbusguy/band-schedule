@@ -3,13 +3,8 @@
 <head data-ng-controller="HeadCtrl">
 	<script type="text/javascript" src="scripts/angular.js"></script>
 	<script type="text/javascript" src="scripts/ang-app.js"></script>
-	<ng-include src="'/includes/head.html'"></ng-include>
+	<div ng-include src="'/includes/head.html'"></div>
 </head>
-<?php
-session_start();
-if (!isset($_COOKIE['auth'])){
-	setcookie('fccw','auth',time()+60*60*24*30,'/',$_SERVER['HTTP_HOST'],False,False);
-}
 <body>
 
 <div class="gray login-container">

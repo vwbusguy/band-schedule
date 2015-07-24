@@ -9,4 +9,5 @@ function HeadCtrl($scope, $http){
 
 function LoginCtrl($scope, $http){
 	$scope.title = "Band Schedule";
+	$.cookie('fccw','auth',Date()+60*60*24*30);
 }
