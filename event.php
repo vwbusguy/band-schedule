@@ -28,7 +28,7 @@ if (!isset($ev['date'])){
 }
 echo '<div class="container">';
 echo '<h1>' . date("F d, Y", strtotime($ev['date']));
-if ($level = 2){
+if ($level == 1){
 	echo '  <button type="button" class="btn btn-danger btnDelEv" data-eventid="' . $_GET['id'] . '">Delete Event</button>';
 }
 
