@@ -1,7 +1,7 @@
 band-schedule
 =============
 
-**This project is no longer being maintained.**
+**This project is no longer being maintained.  Consider [Planning Center](https://github.com/planningcenter) as an alternative.**
 
 This app was created as a solution to a church music team as a way to schedule member availability after trying various other solutions that did not fit our needs.  As such, it is intended for ease of use and modularity.
 
